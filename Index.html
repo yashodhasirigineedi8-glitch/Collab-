@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Education Dashboard</title>
+  <style>
+    /* ===== CSS Styling ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    header {
+      background: #2d6cdf;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background: #1e3c72;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 60px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 14px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background: #2d6cdf;
+    }
+    .content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    h2 {
+      color: #2d6cdf;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    button {
+      background: #2d6cdf;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #1a4bb8;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    🎓 Education Dashboard
+  </header>
+
+  <!-- ===== Sidebar ===== -->
+  <div class="sidebar">
+    <a href="#">🏠 Home</a>
+    <a href="#">📚 Courses</a>
+    <a href="#">📝 Assignments</a>
+    <a href="#">📊 Progress</a>
+    <a href="#">⚙ Settings</a>
+  </div>
+
+  <!-- ===== Main Content ===== -->
+  <div class="content">
+    <div class="card">
+      <h2>Welcome, Student!</h2>
+      <p>Track your courses, assignments, and learning progress here.</p>
+      <button onclick="alert('Great! Keep Learning 🚀')">Start Learning</button>
+    </div>
+
+    <div class="cards-container">
+      <div class="card">
+        <h2>My Courses</h2>
+        <ul>
+          <li>Mathematics</li>
+          <li>Science</li>
+          <li>History</li>
+          <li>Computer Science</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Upcoming Assignments</h2>
+        <ul>
+          <li>Math Homework - Due Sep 20</li>
+          <li>Science Project - Due Sep 25</li>
+          <li>History Essay - Due Sep 28</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Learning Progress</h2>
+        <canvas id="progressChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== JavaScript ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Progress Chart
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Completed', 'In Progress', 'Pending'],
+        datasets: [{
+          data: [60, 25, 15],
+          backgroundColor: ['#2d6cdf', '#f1c40f', '#e74c3c']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+  </htm>l>
